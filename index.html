@@ -68,7 +68,7 @@
                         <input type="text" id="expenseCategory" placeholder="Category" class="input-field">
                         <button onclick="addExpense()" class="btn-primary">Add Expense</button>
                         <div id="expenseList" class="expense-list"></div>
-                        <p class="total" id="expenseTotal">Total: $0.00</p>
+                        <p class="total" id="expenseTotal">Total: ₦0.00</p>
                     </div>
                 </div>
 
@@ -128,12 +128,37 @@
     <!-- Payment Section -->
     <section id="payment" class="payment-section">
         <div class="container">
-            <h2>Bank Transfer Payment Settings</h2>
-            <p class="section-subtitle">Make secure payments via bank transfer</p>
+            <h2>Payment Options</h2>
+            <p class="section-subtitle">Multiple ways to pay for services</p>
             
             <div class="payment-container">
-                <div class="payment-card">
-                    <h3>💳 Payment Information</h3>
+                <!-- Opay Payment Card -->
+                <div class="payment-card opay-card">
+                    <h3>📱 Opay Transfer</h3>
+                    <div class="bank-info">
+                        <div class="bank-detail">
+                            <label>Account Holder:</label>
+                            <p>Charles Christopher Dados</p>
+                        </div>
+                        <div class="bank-detail">
+                            <label>Opay Account Number:</label>
+                            <p class="copyable" onclick="copyToClipboard('opayNumber')">9071165492 <i class="fas fa-copy"></i></p>
+                        </div>
+                        <div class="bank-detail">
+                            <label>USSD Code:</label>
+                            <p class="copyable" onclick="copyToClipboard('ussdCode')">*955# <i class="fas fa-copy"></i></p>
+                        </div>
+                        <div class="bank-detail">
+                            <label>How to Use USSD:</label>
+                            <p>Dial <strong>*955#</strong> on your phone to access Opay services</p>
+                        </div>
+                        <p class="bank-note">💡 Opay is fast, secure, and available 24/7</p>
+                    </div>
+                </div>
+
+                <!-- Online Bank Transfer Card -->
+                <div class="payment-card bank-card">
+                    <h3>🏦 Online Bank Transfer</h3>
                     <form class="payment-form" onsubmit="processPayment(event)">
                         <div class="form-group">
                             <label for="paymentName">Full Name</label>
@@ -144,38 +169,40 @@
                             <input type="email" id="paymentEmail" placeholder="your@email.com" required class="input-field">
                         </div>
                         <div class="form-group">
-                            <label for="paymentAmount">Amount</label>
+                            <label for="paymentAmount">Amount (₦)</label>
                             <input type="number" id="paymentAmount" placeholder="Enter amount" step="0.01" required class="input-field">
                         </div>
                         <div class="form-group">
                             <label for="paymentDescription">Description</label>
                             <textarea id="paymentDescription" placeholder="What is this payment for?" class="textarea-field"></textarea>
                         </div>
-                        <button type="submit" class="btn-primary">Proceed to Bank Transfer</button>
+                        <button type="submit" class="btn-primary">Request Payment Details</button>
                     </form>
+                    <p class="bank-note">ℹ️ Bank details will be sent to your email after submission</p>
                 </div>
 
-                <div class="bank-details-card">
-                    <h3>🏦 Bank Transfer Details</h3>
-                    <div class="bank-info">
-                        <div class="bank-detail">
-                            <label>Account Holder:</label>
-                            <p>Williams</p>
+                <!-- Bank Transfer Instructions -->
+                <div class="payment-card instructions-card">
+                    <h3>📋 Bank Transfer Instructions</h3>
+                    <div class="instructions-list">
+                        <div class="instruction-item">
+                            <h4>Step 1: Choose Payment Method</h4>
+                            <p>Select either Opay or Online Bank Transfer</p>
                         </div>
-                        <div class="bank-detail">
-                            <label>Email for Confirmation:</label>
-                            <p>wc693400@gmail.com</p>
+                        <div class="instruction-item">
+                            <h4>Step 2: Transfer Amount</h4>
+                            <p>Transfer the required amount using your preferred method</p>
                         </div>
-                        <div class="bank-detail">
-                            <label>Phone Number:</label>
-                            <p>+234 907 1165492</p>
+                        <div class="instruction-item">
+                            <h4>Step 3: Send Confirmation</h4>
+                            <p>Contact us with payment proof: wc693400@gmail.com or +234 907 1165492</p>
                         </div>
-                        <div class="bank-detail">
-                            <label>Note:</label>
-                            <p>Contact Williams for complete bank details and payment instructions.</p>
+                        <div class="instruction-item">
+                            <h4>Step 4: Get Receipt</h4>
+                            <p>You'll receive a confirmation email within 24 hours</p>
                         </div>
-                        <p class="bank-note">⚠️ Please note: Bank transfer may take 1-3 business days to process. You will receive a confirmation email at your provided email address.</p>
                     </div>
+                    <p class="bank-note">⏱️ Processing time: 1-24 hours depending on your bank</p>
                 </div>
             </div>
         </div>
