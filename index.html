@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willcom Portfolio - Daily Productivity Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Willcom</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Willcom Portfolio</h1>
+                <p>Solving Your Daily Challenges with Smart Tools & Solutions</p>
+                <p class="subtitle">Productivity, Time Management, and Personal Growth</p>
+                <button class="cta-button" onclick="document.getElementById('tools').scrollIntoView({behavior: 'smooth'})">Explore Tools</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Tools Section -->
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h2>Daily Productivity Tools</h2>
+            <p class="section-subtitle">Free tools to help you manage your day</p>
+            
+            <div class="tools-grid">
+                <!-- Pomodoro Timer -->
+                <div class="tool-card">
+                    <h3>⏲️ Pomodoro Timer</h3>
+                    <div class="tool-content">
+                        <div class="timer-display" id="timerDisplay">25:00</div>
+                        <div class="timer-controls">
+                            <button onclick="startTimer()" class="btn-primary">Start</button>
+                            <button onclick="pauseTimer()" class="btn-secondary">Pause</button>
+                            <button onclick="resetTimer()" class="btn-secondary">Reset</button>
+                        </div>
+                        <p class="tool-description">Work for 25 minutes, rest for 5. Boost your productivity!</p>
+                    </div>
+                </div>
+
+                <!-- Expense Tracker -->
+                <div class="tool-card">
+                    <h3>💰 Expense Tracker</h3>
+                    <div class="tool-content">
+                        <input type="number" id="expenseAmount" placeholder="Amount" class="input-field">
+                        <input type="text" id="expenseCategory" placeholder="Category" class="input-field">
+                        <button onclick="addExpense()" class="btn-primary">Add Expense</button>
+                        <div id="expenseList" class="expense-list"></div>
+                        <p class="total" id="expenseTotal">Total: $0.00</p>
+                    </div>
+                </div>
+
+                <!-- Habit Tracker -->
+                <div class="tool-card">
+                    <h3>✅ Habit Tracker</h3>
+                    <div class="tool-content">
+                        <input type="text" id="habitName" placeholder="Enter habit" class="input-field">
+                        <button onclick="addHabit()" class="btn-primary">Add Habit</button>
+                        <div id="habitList" class="habit-list"></div>
+                    </div>
+                </div>
+
+                <!-- Quick Notes -->
+                <div class="tool-card">
+                    <h3>📝 Quick Notes</h3>
+                    <div class="tool-content">
+                        <textarea id="noteContent" placeholder="Write your notes here..." class="textarea-field"></textarea>
+                        <button onclick="saveNote()" class="btn-primary">Save Note</button>
+                        <div id="notesList" class="notes-list"></div>
+                    </div>
+                </div>
+
+                <!-- Goal Setter -->
+                <div class="tool-card">
+                    <h3>🎯 Goal Setter</h3>
+                    <div class="tool-content">
+                        <input type="text" id="goalTitle" placeholder="Goal" class="input-field">
+                        <select id="goalCategory" class="input-field">
+                            <option>Health</option>
+                            <option>Career</option>
+                            <option>Personal</option>
+                            <option>Finance</option>
+                        </select>
+                        <button onclick="addGoal()" class="btn-primary">Set Goal</button>
+                        <div id="goalsList" class="goals-list"></div>
+                    </div>
+                </div>
+
+                <!-- Mood Tracker -->
+                <div class="tool-card">
+                    <h3>😊 Daily Mood Tracker</h3>
+                    <div class="tool-content">
+                        <div class="mood-selector">
+                            <button onclick="recordMood('😢', 'Sad')" class="mood-btn">😢</button>
+                            <button onclick="recordMood('😐', 'Neutral')" class="mood-btn">😐</button>
+                            <button onclick="recordMood('😊', 'Happy')" class="mood-btn">😊</button>
+                            <button onclick="recordMood('🤩', 'Excited')" class="mood-btn">🤩</button>
+                        </div>
+                        <div id="moodHistory" class="mood-history"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <p class="section-subtitle">Solutions that make a difference</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Time Management System</h3>
+                    <p>A comprehensive system helping thousands manage their time effectively.</p>
+                    <ul>
+                        <li>✓ Scheduling tools</li>
+                        <li>✓ Priority management</li>
+                        <li>✓ Deadline tracking</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3>Personal Finance Planner</h3>
+                    <p>Track expenses, set budgets, and achieve financial goals.</p>
+                    <ul>
+                        <li>✓ Budget planning</li>
+                        <li>✓ Expense tracking</li>
+                        <li>✓ Savings goals</li>
+                    </ul>
+                </div>
+                <div class="project-card">
+                    <h3>Wellness & Habit Tracker</h3>
+                    <p>Build better habits and track your wellness journey.</p>
+                    <ul>
+                        <li>✓ Habit formation</li>
+                        <li>✓ Progress tracking</li>
+                        <li>✓ Motivation tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2>Productivity Blog</h2>
+            <p class="section-subtitle">Tips, tricks, and strategies for daily success</p>
+            
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <h3>5 Ways to Boost Your Productivity Today</h3>
+                    <p class="blog-date">June 21, 2026</p>
+                    <p>Discover simple strategies that can transform your daily routine and help you accomplish more in less time...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+                <article class="blog-post">
+                    <h3>The Science Behind the Pomodoro Technique</h3>
+                    <p class="blog-date">June 20, 2026</p>
+                    <p>Learn why breaking work into focused intervals is one of the most effective productivity methods...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+                <article class="blog-post">
+                    <h3>Building Habits That Last</h3>
+                    <p class="blog-date">June 19, 2026</p>
+                    <p>Real strategies for creating lasting habits that stick. Stop starting over and start finishing...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p class="section-subtitle">Have questions or feedback? We'd love to hear from you</p>
+            
+            <form class="contact-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name" required class="input-field">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email" required class="input-field">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Message" required class="textarea-field"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Willcom Portfolio. All rights reserved.</p>
+            <p>Helping you solve daily challenges with smart solutions.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
