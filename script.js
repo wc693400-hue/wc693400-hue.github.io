@@ -206,11 +206,62 @@ function displayMoodHistory() {
     });
 }
 
-// Contact Form
+// Payment Processing
+function processPayment(event) {
+    event.preventDefault();
+    
+    const name = document.getElementById('paymentName').value;
+    const email = document.getElementById('paymentEmail').value;
+    const amount = document.getElementById('paymentAmount').value;
+    const description = document.getElementById('paymentDescription').value;
+    
+    if (name && email && amount) {
+        // Store payment information
+        const payment = {
+            name,
+            email,
+            amount,
+            description,
+            date: new Date().toLocaleString(),
+            status: 'Pending Bank Transfer'
+        };
+        
+        let payments = JSON.parse(localStorage.getItem('payments')) || [];
+        payments.push(payment);
+        localStorage.setItem('payments', JSON.stringify(payments));
+        
+        // Show success message
+        alert(`Payment Initiated!\\n\\nAmount: $${amount}\\n\\nPlease contact Williams for bank transfer details.\\nA confirmation email will be sent to ${email}\\n\\nContact: wc693400@gmail.com or +234 907 1165492`);
+        
+        // Clear form
+        event.target.reset();
+    }
+}
+
+// Contact Form Handler
 function handleSubmit(event) {
     event.preventDefault();
-    alert('Thank you for your message! We\'ll get back to you soon.');
-    event.target.reset();
+    
+    const name = event.target.elements[0].value;
+    const email = event.target.elements[1].value;
+    const message = event.target.elements[2].value;
+    
+    if (name && email && message) {
+        // Store contact submission
+        const submission = {
+            name,
+            email,
+            message,
+            date: new Date().toLocaleString()
+        };
+        
+        let submissions = JSON.parse(localStorage.getItem('contactSubmissions')) || [];
+        submissions.push(submission);
+        localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+        
+        alert('Thank you for your message!\\n\\nWilliams will get back to you soon at ' + email);
+        event.target.reset();
+    }
 }
 
 // Initialize all displays on page load
